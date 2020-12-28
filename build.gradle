@@ -1,0 +1,31 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.1'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'ro.fasttrackit'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '15'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+
+	compile 'org.springframework.boot:spring-boot-starter-web:2.4.1'
+
+	implementation('org.postgresql:postgresql')
+	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.4.2'  //Spring Data JPA
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testCompile 'org.mockito:mockito-core:2.28.2'
+	testCompile 'org.mockito:mockito-junit-jupiter:2.28.2'
+}
+
+test {
+	useJUnitPlatform()
+}
