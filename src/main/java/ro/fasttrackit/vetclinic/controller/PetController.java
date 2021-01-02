@@ -1,12 +1,10 @@
 package ro.fasttrackit.vetclinic.controller;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ro.fasttrackit.vetclinic.model.Pet;
+import ro.fasttrackit.vetclinic.model.entity.PetEntity;
 import ro.fasttrackit.vetclinic.service.PetService;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -61,17 +59,24 @@ public class PetController {
   }
     }*/
 
-
-    /*@GetMapping("")
-    public Pet getAllPets(Pet petRequest) {
+/*
+    @GetMapping("")
+    public Pet getAllPets(HttpServletRequest getRequest) {
         //List<Pet> pets = (List<Pet>) service.getAllPets();
-        return service.getAllPets(petRequest);
-    }*/
+        return service.getAllPets(HttpStatus.OK);
+    }
+    public ResponseEntity<List<Pet>> getAllPets(HttpServletRequest request) {
+        Long id = (Long) request.getAttribute("userId");
+        List<Pet> petList = (List<Pet>) service.getAllPets(id);
+        return new ResponseEntity<>(petList, HttpStatus.OK);
+    }
+    */
 
-    /*@GetMapping("")
-    List<Pet> all(){
-        return service.findAll();
-    }*/
+    @GetMapping("")
+    List<PetEntity> getAll(){
+
+        return (List<PetEntity>) service.findAll();
+    }
 
     @PostMapping("/new")
     public Pet createNewPet(@RequestBody Pet petRequest){

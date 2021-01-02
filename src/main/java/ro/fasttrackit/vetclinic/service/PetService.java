@@ -2,6 +2,7 @@ package ro.fasttrackit.vetclinic.service;
 
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import ro.fasttrackit.vetclinic.model.Pet;
 import ro.fasttrackit.vetclinic.model.entity.PetEntity;
@@ -13,7 +14,7 @@ import java.util.List;
 @Service
 public class PetService {
 
-    @Value("8082")
+    @Value("8081")
     private String servicePort;
 
     private final PetRepository repository; //mappam/injectam repository in clasa service
@@ -44,21 +45,21 @@ public class PetService {
     }
 
 
-    /*public Pet getAllPets(Pet request) {
-        List<PetEntity> allPets = new ArrayList<>();
+    public List<PetEntity> findAll() {
+        //List<PetEntity> petEntityList = new ArrayList<>();
 
-        Class<? extends PetRepository> getEntity = this.repository.getClass();
+            List<PetEntity> getEntityList = this.repository.findAll();
+
+            return getEntityList;
 
         //List<Pet> responseObject = new ArrayList<>();
-        return request;
 
-    }*/
+    }
 
-    /*public List<Pet> findAll() {
+
+   /* public List<Pet> findAll() {
 
         List<PetEntity> findEntity = this.repository.findAll();
         return findAll();
-    }
-
-     */
+    }*/
 }

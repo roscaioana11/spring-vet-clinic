@@ -49,4 +49,6 @@ public class PetEntity implements Serializable {
                 ", species=" + species +
                 '}';
     }
+
+
 }
