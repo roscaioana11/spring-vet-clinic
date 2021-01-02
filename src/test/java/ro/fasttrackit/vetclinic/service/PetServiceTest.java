@@ -77,12 +77,12 @@ class PetServiceTest {
 
     @Test
     void deleteById() {
-        Long id = 4L;
+        Long id = 1L;
 
-        //Mockito.when(this.repository.deleteById(4L)).thenReturn(id);
+        //Mockito.when(this.repository.deleteById(1L)).thenReturn(id);
 
-        this.service.deleteById(4L);
+        this.service.deleteById(1L);
 
-        Mockito.verify(repository).deleteById(4L);
+        Mockito.verify(repository).deleteById(1L);
     }
 }
