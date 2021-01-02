@@ -10,11 +10,10 @@ import ro.fasttrackit.vetclinic.model.entity.PetEntity;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 
 @Repository
 public interface PetRepository extends JpaRepository<PetEntity, Long> {
-
-    //Collection<Pet> findAll(String ceva);
 
 }

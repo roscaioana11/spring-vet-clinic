@@ -2,14 +2,13 @@ package ro.fasttrackit.vetclinic.service;
 
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import ro.fasttrackit.vetclinic.model.Pet;
 import ro.fasttrackit.vetclinic.model.entity.PetEntity;
 import ro.fasttrackit.vetclinic.repository.PetRepository;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PetService {
@@ -24,8 +23,7 @@ public class PetService {
         this.repository = injectedRepository;
     }
 
-    //public List<Pet> getAllPets = new ArrayList<>();
-
+    //for postmapping adding a new pet in db
     public Pet createNewPet(Pet request){
 
         //cream o entitate
@@ -44,22 +42,19 @@ public class PetService {
         return responseObject;
     }
 
-
+    //for getmapping get all pets
     public List<PetEntity> findAll() {
-        //List<PetEntity> petEntityList = new ArrayList<>();
 
             List<PetEntity> getEntityList = this.repository.findAll();
 
             return getEntityList;
 
-        //List<Pet> responseObject = new ArrayList<>();
 
     }
 
 
-   /* public List<Pet> findAll() {
-
-        List<PetEntity> findEntity = this.repository.findAll();
-        return findAll();
-    }*/
+    public Optional<PetEntity> findById(Long id) {
+        Optional<PetEntity> findEntityId = this.repository.findById(id);
+        return findEntityId;
+    }
 }

@@ -6,6 +6,7 @@ import ro.fasttrackit.vetclinic.model.entity.PetEntity;
 import ro.fasttrackit.vetclinic.service.PetService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/pet")
@@ -75,7 +76,12 @@ public class PetController {
     @GetMapping("")
     List<PetEntity> getAll(){
 
-        return (List<PetEntity>) service.findAll();
+        return service.findAll();
+    }
+
+    @GetMapping("/{id}")
+    Optional<PetEntity> findById(@PathVariable Long id){
+        return service.findById(id);
     }
 
     @PostMapping("/new")
