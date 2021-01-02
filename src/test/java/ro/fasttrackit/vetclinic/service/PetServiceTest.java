@@ -38,8 +38,8 @@ class PetServiceTest {
     void createNewPet_expectedActualValuesFromRepository() {
         // Given (test setup)
         PetEntity expectedEntity = new PetEntity();
-        expectedEntity.setId(4L);
-        expectedEntity.setName("Kira");
+        expectedEntity.setId(1L);
+        expectedEntity.setName("Luna");
         expectedEntity.setSpecies(Species.CAT);
         Mockito.when(repository.save(ArgumentMatchers.any())).thenReturn(expectedEntity);
 
@@ -48,7 +48,7 @@ class PetServiceTest {
 
         // Then (assertions)
         Assertions.assertNotNull(actualCreatedPet);
-        Assertions.assertEquals("Kira", actualCreatedPet.getName());
+        Assertions.assertEquals("Luna", actualCreatedPet.getName());
         Assertions.assertEquals(Species.CAT, actualCreatedPet.getSpecies());
     }
 
