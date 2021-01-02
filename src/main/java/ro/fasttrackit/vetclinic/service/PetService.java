@@ -44,8 +44,8 @@ public class PetService {
 
     //for getmapping get all pets
     public List<PetEntity> findAll() {
-            List<PetEntity> getEntityList = this.repository.findAll();
-            return getEntityList;
+        List<PetEntity> getEntityList = this.repository.findAll();
+        return getEntityList;
     }
 
     //for getmapping get pet by id

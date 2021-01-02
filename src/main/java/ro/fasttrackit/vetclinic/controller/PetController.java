@@ -12,15 +12,38 @@ import java.util.Optional;
 @RequestMapping("/api/pet")
 public class PetController {
 
-    private static final String VIEWS_PETS_CREATE_OR_UPDATE_FORM = "pets/createOrUpdatePetForm";
-
     private final PetService service;
 
     public PetController(PetService injectedService){
         this.service = injectedService;
     }
 
-    /*@GetMapping
+    @GetMapping("")
+    List<PetEntity> getAll(){
+
+        return service.findAll();
+    }
+
+    @GetMapping("/{id}")
+    Optional<PetEntity> findById(@PathVariable Long id){
+        return service.findById(id);
+    }
+
+    @PostMapping("/new")
+    public Pet createNewPet(@RequestBody Pet petRequest){
+        return service.createNewPet(petRequest);
+    }
+
+    @DeleteMapping("{id}")
+    void deleteById(@PathVariable Long id){
+        service.deleteById(id);
+    }
+
+}
+
+
+//self help info
+/*@GetMapping
     public List<Pet> getAllPets(){
         return petService.getAllPets();
 
@@ -72,26 +95,3 @@ public class PetController {
         return new ResponseEntity<>(petList, HttpStatus.OK);
     }
     */
-
-    @GetMapping("")
-    List<PetEntity> getAll(){
-
-        return service.findAll();
-    }
-
-    @GetMapping("/{id}")
-    Optional<PetEntity> findById(@PathVariable Long id){
-        return service.findById(id);
-    }
-
-    @PostMapping("/new")
-    public Pet createNewPet(@RequestBody Pet petRequest){
-        return service.createNewPet(petRequest);
-    }
-
-    @DeleteMapping("{id}")
-    void deleteById(@PathVariable Long id){
-        service.deleteById(id);
-    }
-
-}

@@ -3,7 +3,6 @@ package ro.fasttrackit.vetclinic.model.entity;
 import ro.fasttrackit.vetclinic.model.Species;
 
 import javax.persistence.*;
-import javax.persistence.metamodel.Type;
 import java.io.Serializable;
 
 @Entity(name = "pet")
@@ -16,6 +15,8 @@ public class PetEntity implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column private Species species;
+
+
 
     public Long getId() {
         return id;
