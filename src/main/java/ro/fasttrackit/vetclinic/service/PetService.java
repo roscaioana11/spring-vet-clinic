@@ -44,17 +44,18 @@ public class PetService {
 
     //for getmapping get all pets
     public List<PetEntity> findAll() {
-
             List<PetEntity> getEntityList = this.repository.findAll();
-
             return getEntityList;
-
-
     }
 
-
+    //for getmapping get pet by id
     public Optional<PetEntity> findById(Long id) {
         Optional<PetEntity> findEntityId = this.repository.findById(id);
         return findEntityId;
+    }
+
+    //for deletemappin delete pet by id
+    public void deleteById(Long id) {
+        this.repository.deleteById(id);
     }
 }

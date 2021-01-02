@@ -89,4 +89,9 @@ public class PetController {
         return service.createNewPet(petRequest);
     }
 
+    @DeleteMapping("{id}")
+    void deleteById(@PathVariable Long id){
+        service.deleteById(id);
+    }
+
 }
