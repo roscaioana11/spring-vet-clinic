@@ -9,6 +9,7 @@ import ro.fasttrackit.vetclinic.repository.PetRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class PetService {
@@ -23,6 +24,14 @@ public class PetService {
         this.repository = injectedRepository;
     }
 
+    public  Pet mapEntityToPetResponse(PetEntity entity){
+        Pet response = new Pet();
+        response.setId(entity.getId());
+        response.setName(entity.getName());
+        response.setSpecies(entity.getSpecies());
+        return response;
+    }
+
     //for postmapping adding a new pet in db
     public Pet createNewPet(Pet request){
 
@@ -35,27 +44,31 @@ public class PetService {
         PetEntity saveEntity = this.repository.save(newPet);
 
         //cream manual un response object
-        Pet responseObject = new Pet(); //nu mai manipulam aceste date, le lasam immutable pe cat de mult posibil
-        responseObject.setId(saveEntity.getId());
-        responseObject.setName(saveEntity.getName());
-        responseObject.setSpecies(saveEntity.getSpecies());
-        return responseObject;
+        return mapEntityToPetResponse(saveEntity);
     }
 
     //for getmapping get all pets
-    public List<PetEntity> findAll() {
-        List<PetEntity> getEntityList = this.repository.findAll();
-        return getEntityList;
+    public List<Pet> findAllPets() {
+        return this.repository.findAll()
+                .stream()
+                .map(entity -> mapEntityToPetResponse(entity))
+                .collect(Collectors.toList());
     }
 
     //for getmapping get pet by id
-    public Optional<PetEntity> findById(Long id) {
-        Optional<PetEntity> findEntityId = this.repository.findById(id);
-        return findEntityId;
+    public Pet findPetById(Long petId) {
+        Optional<PetEntity> foundEntity = repository.findById(petId);
+        if (!foundEntity.isPresent()){
+            return null;
+        }
+        return foundEntity
+                .map(entityToMap -> mapEntityToPetResponse(entityToMap))
+                .get();
     }
 
     //for deletemappin delete pet by id
-    public void deleteById(Long id) {
+    public void deletePet(Long id) {
+
         this.repository.deleteById(id);
     }
 }

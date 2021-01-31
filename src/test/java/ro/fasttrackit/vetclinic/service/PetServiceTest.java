@@ -59,7 +59,7 @@ class PetServiceTest {
 
         Mockito.when(this.repository.findAll()).thenReturn(expected);
 
-        this.service.findAll();
+        this.service.findAllPets();
 
         Mockito.verify(repository).findAll();
     }
@@ -70,7 +70,7 @@ class PetServiceTest {
 
         Mockito.when(this.repository.findById(1L)).thenReturn(testEntityId);
 
-        this.service.findById(1L);
+        this.service.findPetById(1L);
 
         Mockito.verify(repository).findById(1L);
     }
@@ -81,7 +81,7 @@ class PetServiceTest {
 
         //Mockito.when(this.repository.deleteById(1L)).thenReturn(id);
 
-        this.service.deleteById(1L);
+        this.service.deletePet(1L);
 
         Mockito.verify(repository).deleteById(1L);
     }
