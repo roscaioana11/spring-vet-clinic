@@ -1,9 +1,6 @@
 package ro.fasttrackit.vetclinic.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -11,18 +8,20 @@ import java.util.Date;
 public class ConsultationEntity implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column
     private String diagnosis;
-    @Id
+
     @Column
     private String recommendation;
-    @Id
+
     @Column
     private String comments;
-    @Id
+
     @Column
     private Date dateOfScheduling;
-    @Id
+
     @Column
     private Date dateOfConsultation;
 
