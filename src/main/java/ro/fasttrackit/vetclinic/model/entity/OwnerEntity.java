@@ -16,7 +16,7 @@ public class OwnerEntity {
     @Column
     private String firstName;
     @Column
-    private String CNP;
+    private String cnp;
 
     @ManyToMany
     private List<PetEntity> pets; //numele de pets este ce punem in PetEntity la ManyToMany(mappedBy = "pets")
@@ -46,11 +46,11 @@ public class OwnerEntity {
     }
 
     public String getCNP() {
-        return CNP;
+        return cnp;
     }
 
     public void setCNP(String CNP) {
-        this.CNP = CNP;
+        this.cnp = CNP;
     }
 
     public List<PetEntity> getPets() {

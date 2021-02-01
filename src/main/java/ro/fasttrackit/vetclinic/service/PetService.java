@@ -3,7 +3,9 @@ package ro.fasttrackit.vetclinic.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import ro.fasttrackit.vetclinic.model.Owner;
 import ro.fasttrackit.vetclinic.model.Pet;
+import ro.fasttrackit.vetclinic.model.entity.OwnerEntity;
 import ro.fasttrackit.vetclinic.model.entity.PetEntity;
 import ro.fasttrackit.vetclinic.repository.PetRepository;
 
@@ -64,6 +66,17 @@ public class PetService {
         return foundEntity
                 .map(entityToMap -> mapEntityToPetResponse(entityToMap))
                 .get();
+    }
+
+    public Pet updatePet(Pet req) {
+        PetEntity entityToUpdate = new PetEntity();
+        entityToUpdate.setId(req.getId()); // ! here is the diff between UPDATE and SAVE
+        entityToUpdate.setName(req.getName());
+        entityToUpdate.setSpecies(req.getSpecies());
+
+        PetEntity updatedEntity = this.repository.save(entityToUpdate);
+
+        return mapEntityToPetResponse(updatedEntity);
     }
 
     //for deletemappin delete pet by id

@@ -1,7 +1,9 @@
 package ro.fasttrackit.vetclinic.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ro.fasttrackit.vetclinic.model.Owner;
 import ro.fasttrackit.vetclinic.model.Pet;
 import ro.fasttrackit.vetclinic.model.entity.PetEntity;
 import ro.fasttrackit.vetclinic.service.PetService;
@@ -34,6 +36,16 @@ public class PetController {
     public ResponseEntity<Pet> createNewPet(@RequestBody Pet petRequest){
 
         return ResponseEntity.ok(service.createNewPet(petRequest));
+    }
+
+    @PutMapping("/api/pet/update")
+    public ResponseEntity<Pet> updatePet(@RequestBody Pet updateRequest) {
+        if (updateRequest.getId() == null || updateRequest.getId() <= 0) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(updateRequest);
+        }
+        return ResponseEntity.ok(service.updatePet(updateRequest));
     }
 
     @DeleteMapping("/api/pet/{id}")

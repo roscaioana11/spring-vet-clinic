@@ -5,7 +5,7 @@ public class Owner {
     private Long id;
     private String lastName;
     private String firstName;
-    private Long CNP;
+    private String cnp;
 
     public Long getId() {
         return id;
@@ -31,12 +31,12 @@ public class Owner {
         this.firstName = firstName;
     }
 
-    public Long getCNP() {
-        return CNP;
+    public String getCnp() {
+        return cnp;
     }
 
-    public void setCNP(Long CNP) {
-        this.CNP = CNP;
+    public void setCnp(String cnp) {
+        this.cnp = cnp;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class Owner {
                 "id=" + id +
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
-                ", CNP=" + CNP +
+                ", cnp=" + cnp +
                 '}';
     }
 }
