@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
-class PetServiceTest {
+public class PetServiceTest {
 
     @InjectMocks
     private PetService service;
@@ -24,14 +24,13 @@ class PetServiceTest {
     private PetRepository repository;
 
     @Test
-    void createNewPet_expectedRepositorySaveMethodCalled() {
+    public void createNewPet_expectedRepositorySaveMethodCalled() {
         Pet petRequest = new Pet(); //Given part / Test setup
         Mockito.when(this.repository.save(ArgumentMatchers.any(PetEntity.class))).thenReturn(new PetEntity());
 
         this.service.createNewPet(petRequest); //When the Service method calls the 'createNewStudent' method
 
         Mockito.verify(repository).save(ArgumentMatchers.any(PetEntity.class)); //Then the repository "save" method is called
-
     }
 
     @Test
@@ -41,7 +40,7 @@ class PetServiceTest {
         expectedEntity.setId(1L);
         expectedEntity.setName("Luna");
         expectedEntity.setSpecies(Species.CAT);
-        Mockito.when(repository.save(ArgumentMatchers.any())).thenReturn(expectedEntity);
+        Mockito.when(repository.save(ArgumentMatchers.any())).thenReturn(expectedEntity); //cand se apeleaza save, returneaza expected entity
 
         // When (action to test)
         Pet actualCreatedPet = service.createNewPet(new Pet());

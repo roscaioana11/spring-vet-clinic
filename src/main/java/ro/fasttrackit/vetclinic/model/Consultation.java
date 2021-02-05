@@ -4,11 +4,20 @@ import java.util.Date;
 
 public class Consultation {
 
+    private Long id;
     private String diagnosis;
     private String recommendation;
     private String comments;
     private Date dateOfScheduling;
     private Date dateOfConsultation;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getDiagnosis() {
         return diagnosis;
@@ -53,7 +62,8 @@ public class Consultation {
     @Override
     public String toString() {
         return "Consultation{" +
-                "diagnosis='" + diagnosis + '\'' +
+                "id=" + id +
+                ", diagnosis='" + diagnosis + '\'' +
                 ", recommendation='" + recommendation + '\'' +
                 ", comments='" + comments + '\'' +
                 ", dateOfScheduling=" + dateOfScheduling +
