@@ -3,6 +3,7 @@ package ro.fasttrackit.vetclinic.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ro.fasttrackit.vetclinic.model.Owner;
 import ro.fasttrackit.vetclinic.model.Pet;
 import ro.fasttrackit.vetclinic.model.entity.OwnerEntity;
@@ -78,6 +79,10 @@ public class PetService {
 
         return mapEntityToPetResponse(updatedEntity);
     }
+
+//    public Pet getPetInfo(Long petId){
+//
+//    }
 
     //for deletemappin delete pet by id
     public void deletePet(Long id) {

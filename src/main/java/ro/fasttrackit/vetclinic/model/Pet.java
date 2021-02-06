@@ -1,5 +1,7 @@
 package ro.fasttrackit.vetclinic.model;
 
+import java.util.List;
+
 public class Pet {
 
     private Long id;

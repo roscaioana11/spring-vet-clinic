@@ -3,6 +3,7 @@ package ro.fasttrackit.vetclinic.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ro.fasttrackit.vetclinic.model.Owner;
 import ro.fasttrackit.vetclinic.model.entity.OwnerEntity;
 import ro.fasttrackit.vetclinic.repository.OwnerRepository;
@@ -70,6 +71,22 @@ public class OwnerService {
         OwnerEntity updatedEntity = this.repository.save(entityToUpdate);
 
         return mapEntityToOwnerResponse(updatedEntity);
+    }
+
+    @Transactional
+    public void renameOwnerDto(Long ownerId, String newFirstName, String newLastName){
+
+        Optional<OwnerEntity> foundEntity = repository.findById(ownerId);
+        if (!foundEntity.isPresent()){
+            return;
+        }
+
+        OwnerEntity ownerEntity = foundEntity.get();
+
+        ownerEntity.setFirstName(newFirstName);
+        ownerEntity.setLastName(newLastName);
+        this.repository.save(ownerEntity);
+
     }
 
     public void deleteOwner(Long id) {

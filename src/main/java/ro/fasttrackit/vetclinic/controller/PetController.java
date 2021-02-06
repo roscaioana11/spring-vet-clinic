@@ -3,6 +3,7 @@ package ro.fasttrackit.vetclinic.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ro.fasttrackit.vetclinic.controller.model.PetDto;
 import ro.fasttrackit.vetclinic.model.Owner;
 import ro.fasttrackit.vetclinic.model.Pet;
 import ro.fasttrackit.vetclinic.model.entity.PetEntity;
@@ -53,6 +54,13 @@ public class PetController {
 
         this.service.deletePet(idToDelete);
 
+    }
+
+    //get info from dto class
+    @GetMapping("/api/pet/getInfo/{id}")
+    public PetDto getPetInfo(@PathVariable(name = "id") Long petId){
+        Pet findPet = service.findPetById(petId);
+        return new PetDto(findPet.getName(),findPet.getSpecies());
     }
 
 }
