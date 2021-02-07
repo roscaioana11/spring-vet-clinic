@@ -26,6 +26,7 @@ dependencies {
 	compile 'io.springfox:springfox-spring-web:3.0.0'
 
 	compile 'org.springframework.boot:spring-boot-starter-actuator:2.2.2.RELEASE'
+	compile group: 'org.springframework.amqp', name: 'spring-rabbit', version: '2.3.4'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testCompile 'org.mockito:mockito-core:2.28.2'

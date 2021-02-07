@@ -203,3 +203,59 @@ java.lang.IllegalArgumentException: The given id must not be null!
 19:12:54.502 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
 19:13:03.911 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
 19:13:05.531 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 11.813 seconds (JVM running for 13.055) <no request,no span> 
+20:25:21.219 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 16360 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+20:25:21.252 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+20:25:35.640 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+20:25:38.592 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 18.134 seconds (JVM running for 19.406) <no request,no span> 
+20:26:35.887 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 16828 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+20:26:35.943 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+20:27:07.166 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+20:27:08.886 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8082 is already in use <no request,no span> 
+20:27:09.637 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8082 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8082 or configure this application to listen on another port.
+ <no request,no span> 
+20:28:51.587 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 17068 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+20:28:51.592 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+20:29:01.173 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+20:29:03.174 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 12.248 seconds (JVM running for 13.395) <no request,no span> 
+20:31:15.042 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 2148 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+20:31:15.052 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+20:31:24.700 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+20:31:26.854 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 12.411 seconds (JVM running for 13.371) <no request,no span> 
+20:42:06.354 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 16808 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+20:42:06.378 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+20:42:20.586 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+20:42:23.158 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 18.042 seconds (JVM running for 19.763) <no request,no span> 
+20:42:55.597 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 16488 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+20:42:55.606 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+20:43:04.915 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+20:43:06.097 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8082 is already in use <no request,no span> 
+20:43:06.707 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8082 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8082 or configure this application to listen on another port.
+ <no request,no span> 
+20:43:39.449 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 1840 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+20:43:39.455 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+20:43:49.158 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+20:43:51.195 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 12.311 seconds (JVM running for 13.222) <no request,no span> 

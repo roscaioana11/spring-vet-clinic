@@ -2,37 +2,40 @@ package ro.fasttrackit.vetclinic.controller.model;
 
 public class OwnerDto {
 
-    public Long ownerId;
-    public String newFirstName;
-    public String newLastName;
+    private Long id;
+    private String lastName;
+    private String firstName;
+    private String cnp;
 
-    public OwnerDto(Long ownerId,String newFirstName,String newLastName) {
-        this.ownerId = ownerId;
-        this.newFirstName = newFirstName;
-        this.newLastName = newLastName;
+    public Long getId() {
+        return id;
     }
 
-    public Long getOwnerId() {
-        return ownerId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setOwnerId(Long ownerId) {
-        this.ownerId = ownerId;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getNewFirstName() {
-        return newFirstName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public void setNewFirstName(String newFirstName) {
-        this.newFirstName = newFirstName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getNewLastName() {
-        return newLastName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setNewLastName(String newLastName) {
-        this.newLastName = newLastName;
+    public String getCnp() {
+        return cnp;
+    }
+
+    public void setCnp(String cnp) {
+        this.cnp = cnp;
     }
 }
