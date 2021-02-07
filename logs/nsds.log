@@ -1,53 +1,20 @@
-18:47:45.639 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 5444 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
-18:47:45.714 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
-18:47:58.102 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
-18:48:00.281 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 15.98 seconds (JVM running for 18.371) <no request,no span> 
-18:48:09.608 [http-nio-8081-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!] with root cause <no request,no span> 
-java.lang.IllegalArgumentException: The given id must not be null!
-	at org.springframework.util.Assert.notNull(Assert.java:201)
-	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById(SimpleJpaRepository.java:269)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121)
-	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:524)
-	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
-	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:531)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:156)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:131)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
-	at com.sun.proxy.$Proxy108.findById(Unknown Source)
-	at ro.fasttrackit.vetclinic.service.OwnerService.renameOwnerDto(OwnerService.java:79)
-	at ro.fasttrackit.vetclinic.service.OwnerService$$FastClassBySpringCGLIB$$84636aa1.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at ro.fasttrackit.vetclinic.service.OwnerService$$EnhancerBySpringCGLIB$$ff34b165.renameOwnerDto(<generated>)
-	at ro.fasttrackit.vetclinic.controller.OwnerController.renameOwner(OwnerController.java:58)
+14:38:02.748 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 8864 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+14:38:02.815 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+14:38:20.063 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+14:38:23.436 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 23.45 seconds (JVM running for 29.823) <no request,no span> 
+14:43:33.077 [http-nio-8082-exec-8] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported] <no request,no span> 
+14:43:50.790 [http-nio-8082-exec-9] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported] <no request,no span> 
+14:53:50.388 [http-nio-8082-exec-2] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported] <no request,no span> 
+14:54:51.098 [http-nio-8082-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: SimpleMessageConverter only supports String, byte[] and Serializable payloads, received: ro.fasttrackit.vetclinic.controller.model.ConsultationDto] with root cause <no request,no span> 
+java.lang.IllegalArgumentException: SimpleMessageConverter only supports String, byte[] and Serializable payloads, received: ro.fasttrackit.vetclinic.controller.model.ConsultationDto
+	at org.springframework.amqp.support.converter.SimpleMessageConverter.createMessage(SimpleMessageConverter.java:164)
+	at org.springframework.amqp.support.converter.AbstractMessageConverter.createMessage(AbstractMessageConverter.java:88)
+	at org.springframework.amqp.support.converter.AbstractMessageConverter.toMessage(AbstractMessageConverter.java:70)
+	at org.springframework.amqp.support.converter.AbstractMessageConverter.toMessage(AbstractMessageConverter.java:58)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertMessageIfNecessary(RabbitTemplate.java:1797)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1114)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1096)
+	at ro.fasttrackit.vetclinic.controller.ConsultationController.createNewConsultation(ConsultationController.java:42)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -61,7 +28,9 @@ java.lang.IllegalArgumentException: The given id must not be null!
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:880)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
@@ -100,52 +69,20 @@ java.lang.IllegalArgumentException: The given id must not be null!
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:832)
-18:49:29.726 [http-nio-8081-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!] with root cause <no request,no span> 
-java.lang.IllegalArgumentException: The given id must not be null!
-	at org.springframework.util.Assert.notNull(Assert.java:201)
-	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById(SimpleJpaRepository.java:269)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121)
-	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:524)
-	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
-	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:531)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:156)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:131)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
-	at com.sun.proxy.$Proxy108.findById(Unknown Source)
-	at ro.fasttrackit.vetclinic.service.OwnerService.renameOwnerDto(OwnerService.java:79)
-	at ro.fasttrackit.vetclinic.service.OwnerService$$FastClassBySpringCGLIB$$84636aa1.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at ro.fasttrackit.vetclinic.service.OwnerService$$EnhancerBySpringCGLIB$$ff34b165.renameOwnerDto(<generated>)
-	at ro.fasttrackit.vetclinic.controller.OwnerController.renameOwner(OwnerController.java:58)
+14:59:31.194 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 14916 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+14:59:31.210 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+14:59:53.594 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+14:59:55.983 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 25.866 seconds (JVM running for 27.398) <no request,no span> 
+15:00:35.429 [http-nio-8082-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: SimpleMessageConverter only supports String, byte[] and Serializable payloads, received: ro.fasttrackit.vetclinic.controller.model.ConsultationDto] with root cause <no request,no span> 
+java.lang.IllegalArgumentException: SimpleMessageConverter only supports String, byte[] and Serializable payloads, received: ro.fasttrackit.vetclinic.controller.model.ConsultationDto
+	at org.springframework.amqp.support.converter.SimpleMessageConverter.createMessage(SimpleMessageConverter.java:164)
+	at org.springframework.amqp.support.converter.AbstractMessageConverter.createMessage(AbstractMessageConverter.java:88)
+	at org.springframework.amqp.support.converter.AbstractMessageConverter.toMessage(AbstractMessageConverter.java:70)
+	at org.springframework.amqp.support.converter.AbstractMessageConverter.toMessage(AbstractMessageConverter.java:58)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertMessageIfNecessary(RabbitTemplate.java:1797)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1114)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1096)
+	at ro.fasttrackit.vetclinic.controller.ConsultationController.createNewConsultation(ConsultationController.java:42)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -159,7 +96,9 @@ java.lang.IllegalArgumentException: The given id must not be null!
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:880)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
@@ -198,64 +137,123 @@ java.lang.IllegalArgumentException: The given id must not be null!
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:832)
-18:49:29.724 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m5s405ms254µs900ns). <no request,no span> 
-19:12:54.496 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 16148 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
-19:12:54.502 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
-19:13:03.911 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
-19:13:05.531 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 11.813 seconds (JVM running for 13.055) <no request,no span> 
-20:25:21.219 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 16360 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
-20:25:21.252 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
-20:25:35.640 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
-20:25:38.592 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 18.134 seconds (JVM running for 19.406) <no request,no span> 
-20:26:35.887 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 16828 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
-20:26:35.943 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
-20:27:07.166 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
-20:27:08.886 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8082 is already in use <no request,no span> 
-20:27:09.637 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8082 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8082 or configure this application to listen on another port.
- <no request,no span> 
-20:28:51.587 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 17068 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
-20:28:51.592 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
-20:29:01.173 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
-20:29:03.174 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 12.248 seconds (JVM running for 13.395) <no request,no span> 
-20:31:15.042 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 2148 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
-20:31:15.052 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
-20:31:24.700 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
-20:31:26.854 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 12.411 seconds (JVM running for 13.371) <no request,no span> 
-20:42:06.354 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 16808 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
-20:42:06.378 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
-20:42:20.586 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
-20:42:23.158 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 18.042 seconds (JVM running for 19.763) <no request,no span> 
-20:42:55.597 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 16488 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
-20:42:55.606 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
-20:43:04.915 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
-20:43:06.097 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8082 is already in use <no request,no span> 
-20:43:06.707 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8082 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8082 or configure this application to listen on another port.
- <no request,no span> 
-20:43:39.449 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 1840 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
-20:43:39.455 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
-20:43:49.158 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
-20:43:51.195 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 12.311 seconds (JVM running for 13.222) <no request,no span> 
+15:02:20.675 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 13816 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+15:02:20.679 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+15:02:29.266 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+15:02:31.032 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 11.084 seconds (JVM running for 12.236) <no request,no span> 
+15:02:36.263 [http-nio-8082-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: SimpleMessageConverter only supports String, byte[] and Serializable payloads, received: ro.fasttrackit.vetclinic.controller.model.ConsultationDto] with root cause <no request,no span> 
+java.lang.IllegalArgumentException: SimpleMessageConverter only supports String, byte[] and Serializable payloads, received: ro.fasttrackit.vetclinic.controller.model.ConsultationDto
+	at org.springframework.amqp.support.converter.SimpleMessageConverter.createMessage(SimpleMessageConverter.java:164)
+	at org.springframework.amqp.support.converter.AbstractMessageConverter.createMessage(AbstractMessageConverter.java:88)
+	at org.springframework.amqp.support.converter.AbstractMessageConverter.toMessage(AbstractMessageConverter.java:70)
+	at org.springframework.amqp.support.converter.AbstractMessageConverter.toMessage(AbstractMessageConverter.java:58)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertMessageIfNecessary(RabbitTemplate.java:1797)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1114)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1096)
+	at ro.fasttrackit.vetclinic.controller.ConsultationController.createNewConsultation(ConsultationController.java:44)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+15:03:41.811 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 10300 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+15:03:41.831 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+15:03:57.264 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+15:03:59.262 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 18.769 seconds (JVM running for 20.499) <no request,no span> 
+16:06:07.613 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 2244 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+16:06:07.649 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+16:06:25.574 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+16:06:28.399 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 22.291 seconds (JVM running for 24.42) <no request,no span> 
+16:19:27.984 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 12900 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+16:19:28.016 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+16:19:41.894 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+16:19:43.816 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 17.113 seconds (JVM running for 18.983) <no request,no span> 
+16:22:12.159 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 16360 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+16:22:12.168 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+16:22:31.894 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+16:22:36.728 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 25.747 seconds (JVM running for 27.642) <no request,no span> 
+16:25:39.020 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 4852 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+16:25:39.055 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+16:26:04.209 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+16:26:08.009 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 30.251 seconds (JVM running for 32.885) <no request,no span> 
+16:32:59.257 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 8744 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+16:32:59.340 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+16:33:13.126 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+16:33:15.477 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 17.425 seconds (JVM running for 19.024) <no request,no span> 
+17:09:00.683 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 12180 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+17:09:00.693 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+17:09:54.308 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 14488 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+17:09:54.324 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+17:10:36.802 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+17:10:42.473 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 49.964 seconds (JVM running for 52.136) <no request,no span> 
+17:15:57.212 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 7996 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+17:15:57.243 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+17:16:12.896 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+17:16:16.461 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 20.369 seconds (JVM running for 21.876) <no request,no span> 
+17:19:54.870 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 17872 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+17:19:54.898 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+17:21:32.551 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 16556 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+17:21:32.566 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+17:21:53.644 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+17:21:57.500 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 26.325 seconds (JVM running for 27.744) <no request,no span> 
+17:34:02.615 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 16836 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+17:34:02.642 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+17:34:16.166 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+17:34:18.719 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 16.795 seconds (JVM running for 17.996) <no request,no span> 
+17:37:03.203 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 11036 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+17:37:03.214 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+17:37:22.061 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+17:37:24.951 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 22.73 seconds (JVM running for 24.064) <no request,no span> 
+17:42:24.123 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Starting VetClinicApplication using Java 15 on Ioana with PID 14476 (D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic\build\classes\java\main started by Ioana in D:\FastTrackIT JAVA PROGRAMMING CURS\spring-vet-clinic) <no request,no span> 
+17:42:24.146 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+17:42:37.284 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+17:42:42.094 [main] INFO  ro.fasttrackit.vetclinic.VetClinicApplication - Started VetClinicApplication in 18.817 seconds (JVM running for 22.831) <no request,no span> 

@@ -9,6 +9,7 @@ public class RabbitMqConfig {
 
     @Bean
     public Queue queue(){
-        return new Queue("consultations");
+        return new Queue("consultations2");
     }
+
 }
