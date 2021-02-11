@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class ConsultationMessageDtoSender {
+public class ConsultationMessageReceiver {
     private Date dateOfScheduling;
     private Date dateOfConsultation;
     private String petName;

@@ -4,10 +4,7 @@ package ro.fasttrackit.vetclinic.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ro.fasttrackit.vetclinic.controller.model.OwnerDto;
-import ro.fasttrackit.vetclinic.controller.model.OwnerRenameDto;
 import ro.fasttrackit.vetclinic.model.Owner;
-import ro.fasttrackit.vetclinic.model.Pet;
 import ro.fasttrackit.vetclinic.service.OwnerService;
 
 import java.util.List;
@@ -54,8 +51,5 @@ public class OwnerController {
         this.service.deleteOwner(idToDelete);
     }
 
-    @PatchMapping("/api/owner/rename")
-    public void renameOwner(@RequestBody OwnerRenameDto dto){
-        this.service.renameOwnerDto(dto.getOwnerId(),dto.getNewFirstName(),dto.getNewLastName());
-    }
+
 }

@@ -80,10 +80,6 @@ public class PetService {
         return mapEntityToPetResponse(updatedEntity);
     }
 
-//    public Pet getPetInfo(Long petId){
-//
-//    }
-
     //for deletemappin delete pet by id
     public void deletePet(Long id) {
 

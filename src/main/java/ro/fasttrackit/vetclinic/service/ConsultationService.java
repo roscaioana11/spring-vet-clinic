@@ -1,5 +1,9 @@
 package ro.fasttrackit.vetclinic.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import ro.fasttrackit.vetclinic.model.Consultation;
 import ro.fasttrackit.vetclinic.model.ConsultationMessage;
@@ -14,10 +18,14 @@ public class ConsultationService {
 
     private final ConsultationRepository repository;
     private final PetRepository petRepository;
+    private final RabbitTemplate rabbitTemplate;
+    private final Queue queue;
 
-    public ConsultationService(ConsultationRepository repository,PetRepository petRepository) {
+    public ConsultationService(ConsultationRepository repository,PetRepository petRepository,RabbitTemplate rabbitTemplate,Queue queue) {
         this.repository = repository;
         this.petRepository = petRepository;
+        this.rabbitTemplate = rabbitTemplate;
+        this.queue = queue;
     }
 
     public Consultation mapEntityToConsultationResponse(ConsultationEntity entity){
@@ -32,7 +40,7 @@ public class ConsultationService {
         return response;
     }
 
-    public ConsultationMessage createNewConsultation(Consultation request){
+    public Consultation createNewConsultation(Consultation request){
         ConsultationEntity newConsultation = new ConsultationEntity();
         newConsultation.setDiagnosis(request.getDiagnosis());
         newConsultation.setRecommendation(request.getRecommendation());
@@ -51,6 +59,15 @@ public class ConsultationService {
                 .stream()
                 .map(owner -> new String(owner.getFirstName()) + " " + owner.getLastName())
                 .collect(Collectors.toList()));
-        return consultationCreatedMessage;
+
+        ObjectMapper objectMapper = new ObjectMapper(); // converteste un obiect intr-un string Json
+
+        try { //forteaza un try-catch ca sa nu opreasca aplicatia in cazul in care conversia da fail
+            String stringMessageConverted = objectMapper.writeValueAsString(consultationCreatedMessage); //acestea exista doar intre aceste acolade din cauza scopului
+            rabbitTemplate.convertAndSend(queue.getName(), stringMessageConverted);
+        } catch (JsonProcessingException e) {
+//            e.printStackTrace();
+        }
+        return mapEntityToConsultationResponse(saveEntity);
     }
 }
