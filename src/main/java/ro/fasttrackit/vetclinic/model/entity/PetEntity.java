@@ -17,10 +17,10 @@ public class PetEntity implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column private Species species;
 
-    @ManyToMany(mappedBy = "pets")
-    private List<OwnerEntity> owners;
+//    @ManyToMany(mappedBy = "pets")
+//    private List<OwnerEntity> owners;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
     private List<ConsultationEntity> consultations;
 
     public Long getId() {
@@ -47,13 +47,13 @@ public class PetEntity implements Serializable {
         this.species = species;
     }
 
-    public List<OwnerEntity> getOwners() {
-        return owners;
-    }
-
-    public void setOwners(List<OwnerEntity> owners) {
-        this.owners = owners;
-    }
+//    public List<OwnerEntity> getOwners() {
+//        return owners;
+//    }
+//
+//    public void setOwners(List<OwnerEntity> owners) {
+//        this.owners = owners;
+//    }
 
     public List<ConsultationEntity> getConsultations() {
         return consultations;
@@ -69,8 +69,7 @@ public class PetEntity implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", species=" + species +
+                ", consultations=" + consultations +
                 '}';
     }
-
-
 }

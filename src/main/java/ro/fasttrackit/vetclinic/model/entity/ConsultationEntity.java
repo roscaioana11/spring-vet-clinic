@@ -3,31 +3,49 @@ package ro.fasttrackit.vetclinic.model.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity(name = "consultation")
-public class ConsultationEntity implements Serializable {
+public class ConsultationEntity implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
-    private String diagnosis;
+//    @Column
+//    private String diagnosis;
+//
+//    @Column
+//    private String recommendation;
+//
+//    @Column
+//    private String comments;
+//
+//    @Column
+//    private Date dateOfScheduling;
+//
+//    @Column
+//    private Date dateOfConsultation;
 
-    @Column
-    private String recommendation;
-
-    @Column
-    private String comments;
-
-    @Column
-    private Date dateOfScheduling;
-
-    @Column
-    private Date dateOfConsultation;
+    @ManyToOne
+    private VetEntity vet;
 
     @ManyToOne
     private PetEntity pet;
 
+    @ManyToOne
+    private OwnerEntity owner;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<DiagnosisEntity> diagnosis;
+
+
+    public List<DiagnosisEntity> getDiagnosis() {
+        return diagnosis;
+    }
+
+    public void setDiagnosis(List<DiagnosisEntity> diagnosis) {
+        this.diagnosis = diagnosis;
+    }
 
     public Long getId() {
         return id;
@@ -37,44 +55,12 @@ public class ConsultationEntity implements Serializable {
         this.id = id;
     }
 
-    public String getDiagnosis() {
-        return diagnosis;
+    public VetEntity getVet() {
+        return vet;
     }
 
-    public void setDiagnosis(String diagnosis) {
-        this.diagnosis = diagnosis;
-    }
-
-    public String getRecommendation() {
-        return recommendation;
-    }
-
-    public void setRecommendation(String recommendation) {
-        this.recommendation = recommendation;
-    }
-
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
-    public Date getDateOfScheduling() {
-        return dateOfScheduling;
-    }
-
-    public void setDateOfScheduling(Date dateOfScheduling) {
-        this.dateOfScheduling = dateOfScheduling;
-    }
-
-    public Date getDateOfConsultation() {
-        return dateOfConsultation;
-    }
-
-    public void setDateOfConsultation(Date dateOfConsultation) {
-        this.dateOfConsultation = dateOfConsultation;
+    public void setVet(VetEntity vet) {
+        this.vet = vet;
     }
 
     public PetEntity getPet() {
@@ -83,5 +69,24 @@ public class ConsultationEntity implements Serializable {
 
     public void setPet(PetEntity pet) {
         this.pet = pet;
+    }
+
+    public OwnerEntity getOwner() {
+        return owner;
+    }
+
+    public void setOwner(OwnerEntity owner) {
+        this.owner = owner;
+    }
+
+    @Override
+    public String toString() {
+        return "ConsultationEntity{" +
+                "id=" + id +
+                ", vet=" + vet +
+                ", pet=" + pet +
+                ", owner=" + owner +
+                ", diagnosis=" + diagnosis +
+                '}';
     }
 }

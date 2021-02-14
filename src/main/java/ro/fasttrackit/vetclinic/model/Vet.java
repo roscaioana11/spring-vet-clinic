@@ -1,11 +1,14 @@
 package ro.fasttrackit.vetclinic.model;
 
-public class Owner {
+import java.util.Date;
 
+public class Vet {
     private Long id;
     private String lastName;
     private String firstName;
     private String cnp;
+    private Date yearOfGraduation;
+    private String specialization;
     private String phoneNumber;
     private String email;
 
@@ -41,6 +44,22 @@ public class Owner {
         this.cnp = cnp;
     }
 
+    public Date getYearOfGraduation() {
+        return yearOfGraduation;
+    }
+
+    public void setYearOfGraduation(Date yearOfGraduation) {
+        this.yearOfGraduation = yearOfGraduation;
+    }
+
+    public String getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
+    }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -59,11 +78,13 @@ public class Owner {
 
     @Override
     public String toString() {
-        return "Owner{" +
+        return "Vet{" +
                 "id=" + id +
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", cnp='" + cnp + '\'' +
+                ", yearOfGraduation=" + yearOfGraduation +
+                ", specialization='" + specialization + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 '}';

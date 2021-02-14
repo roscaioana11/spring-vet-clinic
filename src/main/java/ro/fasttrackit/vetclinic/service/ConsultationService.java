@@ -9,8 +9,12 @@ import ro.fasttrackit.vetclinic.model.Consultation;
 import ro.fasttrackit.vetclinic.model.ConsultationMessage;
 import ro.fasttrackit.vetclinic.model.entity.ConsultationEntity;
 import ro.fasttrackit.vetclinic.repository.ConsultationRepository;
+import ro.fasttrackit.vetclinic.repository.OwnerRepository;
 import ro.fasttrackit.vetclinic.repository.PetRepository;
+import ro.fasttrackit.vetclinic.repository.VetRepository;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -18,12 +22,16 @@ public class ConsultationService {
 
     private final ConsultationRepository repository;
     private final PetRepository petRepository;
+    private final VetRepository vetRepository;
+    private final OwnerRepository ownerRepository;
     private final RabbitTemplate rabbitTemplate;
     private final Queue queue;
 
-    public ConsultationService(ConsultationRepository repository,PetRepository petRepository,RabbitTemplate rabbitTemplate,Queue queue) {
+    public ConsultationService(ConsultationRepository repository,PetRepository petRepository,VetRepository vetRepository,OwnerRepository ownerRepository,RabbitTemplate rabbitTemplate,Queue queue) {
         this.repository = repository;
         this.petRepository = petRepository;
+        this.vetRepository = vetRepository;
+        this.ownerRepository = ownerRepository;
         this.rabbitTemplate = rabbitTemplate;
         this.queue = queue;
     }
@@ -31,34 +39,31 @@ public class ConsultationService {
     public Consultation mapEntityToConsultationResponse(ConsultationEntity entity){
         Consultation response = new Consultation();
         response.setId(entity.getId());
-        response.setDiagnosis(entity.getDiagnosis());
-        response.setRecommendation(entity.getRecommendation());
-        response.setComments(entity.getComments());
-        response.setDateOfScheduling(entity.getDateOfScheduling());
-        response.setDateOfConsultation(entity.getDateOfConsultation());
+        response.setVetId(entity.getVet().getId());
         response.setPetId(entity.getPet().getId());
+        response.setOwnerId(entity.getOwner().getId());
         return response;
     }
 
+    //post
     public Consultation createNewConsultation(Consultation request){
         ConsultationEntity newConsultation = new ConsultationEntity();
-        newConsultation.setDiagnosis(request.getDiagnosis());
-        newConsultation.setRecommendation(request.getRecommendation());
-        newConsultation.setComments(request.getComments());
-        newConsultation.setDateOfScheduling(request.getDateOfScheduling());
-        newConsultation.setDateOfConsultation(request.getDateOfConsultation());
-        newConsultation.setPet(petRepository.findById(request.getPetId()).get());
+        Optional<ConsultationEntity> optionalConsultation = repository.findConsultationByOwnerAndPet(request.getOwnerId(),request.getPetId());
+        if(optionalConsultation.isPresent()){
+            newConsultation = optionalConsultation.get();
+        }else {
+            newConsultation.setPet(petRepository.findById(request.getPetId()).get());
+            newConsultation.setOwner(ownerRepository.findById(request.getOwnerId()).get());
+        }
 
+        newConsultation.setVet(vetRepository.findById(request.getVetId()).get());
         ConsultationEntity saveEntity = this.repository.save(newConsultation);
 
         ConsultationMessage consultationCreatedMessage = new ConsultationMessage();
-        consultationCreatedMessage.setDateOfConsultation(newConsultation.getDateOfConsultation());
-        consultationCreatedMessage.setDateOfScheduling(newConsultation.getDateOfScheduling());
+        consultationCreatedMessage.setVetName(newConsultation.getVet().getFirstName() + " " + newConsultation.getVet().getLastName());
         consultationCreatedMessage.setPetName(newConsultation.getPet().getName());
-        consultationCreatedMessage.setOwnerNames(newConsultation.getPet().getOwners()
-                .stream()
-                .map(owner -> new String(owner.getFirstName()) + " " + owner.getLastName())
-                .collect(Collectors.toList()));
+        consultationCreatedMessage.setOwnerName(newConsultation.getOwner().getFirstName() + " " + newConsultation.getOwner().getLastName());
+
 
         ObjectMapper objectMapper = new ObjectMapper(); // converteste un obiect intr-un string Json
 
@@ -69,5 +74,42 @@ public class ConsultationService {
 //            e.printStackTrace();
         }
         return mapEntityToConsultationResponse(saveEntity);
+    }
+
+    //get all
+    public List<Consultation> findAllConsultations(){
+        return this.repository.findAll()
+                .stream()
+                .map(entity -> mapEntityToConsultationResponse(entity))
+                .collect(Collectors.toList());
+    }
+
+    //get
+    public Consultation findConsultationById(Long consultationId){
+        Optional<ConsultationEntity> foundEntity = repository.findById(consultationId);
+        if(!foundEntity.isPresent()){
+            return null;
+        }
+        return foundEntity
+                .map(entityToMap -> mapEntityToConsultationResponse(entityToMap))
+                .get();
+    }
+
+    //put
+    public Consultation updateConsultation(Consultation req){
+        ConsultationEntity entityToUpdate = new ConsultationEntity();
+        entityToUpdate.setId(req.getId());
+        entityToUpdate.setVet(vetRepository.findById(req.getVetId()).get());
+        entityToUpdate.setPet(petRepository.findById(req.getPetId()).get());
+        entityToUpdate.setOwner(ownerRepository.findById(req.getOwnerId()).get());
+
+        ConsultationEntity updatedEntity = this.repository.save(entityToUpdate);
+
+        return mapEntityToConsultationResponse(updatedEntity);
+    }
+
+    //delete
+    public void deleteConsultation(Long id){
+        this.repository.deleteById(id);
     }
 }

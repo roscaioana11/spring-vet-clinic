@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @Service
 public class PetService {
 
-    @Value("8081")
+    @Value("8082")
     private String servicePort;
 
     private final PetRepository repository; //mappam/injectam repository in clasa service

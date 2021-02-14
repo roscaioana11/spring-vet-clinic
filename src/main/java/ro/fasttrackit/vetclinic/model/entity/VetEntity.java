@@ -1,13 +1,11 @@
 package ro.fasttrackit.vetclinic.model.entity;
 
-
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
-@Entity(name = "owner")
-public class OwnerEntity implements Serializable {
-
+@Entity(name = "vet")
+public class VetEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,15 +17,16 @@ public class OwnerEntity implements Serializable {
     @Column
     private String cnp;
     @Column
+    private Date yearOfGraduation;
+    @Column
+    private String specialization;
+    @Column
     private String phoneNumber;
     @Column
     private String email;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    @OneToMany(cascade = CascadeType.ALL)
     private List<ConsultationEntity> consultations;
-
-//    @ManyToMany
-//    private List<PetEntity> pets; //numele de pets este ce punem in PetEntity la ManyToMany(mappedBy = "pets")
 
     public Long getId() {
         return id;
@@ -61,6 +60,22 @@ public class OwnerEntity implements Serializable {
         this.cnp = cnp;
     }
 
+    public Date getYearOfGraduation() {
+        return yearOfGraduation;
+    }
+
+    public void setYearOfGraduation(Date yearOfGraduation) {
+        this.yearOfGraduation = yearOfGraduation;
+    }
+
+    public String getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
+    }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -84,12 +99,4 @@ public class OwnerEntity implements Serializable {
     public void setConsultations(List<ConsultationEntity> consultations) {
         this.consultations = consultations;
     }
-
-//    public List<PetEntity> getPets() {
-//        return pets;
-//    }
-//
-//    public void setPets(List<PetEntity> pets) {
-//        this.pets = pets;
-//    }
 }

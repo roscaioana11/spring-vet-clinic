@@ -5,21 +5,9 @@ import java.util.Date;
 public class Consultation {
 
     private Long id;
-    private String diagnosis;
-    private String recommendation;
-    private String comments;
-    private Date dateOfScheduling;
-    private Date dateOfConsultation;
+    private Long vetId;
     private Long petId;
-
-
-    public Long getPetId() {
-        return petId;
-    }
-
-    public void setPetId(Long petId) {
-        this.petId = petId;
-    }
+    private Long ownerId;
 
     public Long getId() {
         return id;
@@ -29,56 +17,37 @@ public class Consultation {
         this.id = id;
     }
 
-    public String getDiagnosis() {
-        return diagnosis;
+    public Long getVetId() {
+        return vetId;
     }
 
-    public void setDiagnosis(String diagnosis) {
-        this.diagnosis = diagnosis;
+    public void setVetId(Long vetId) {
+        this.vetId = vetId;
     }
 
-    public String getRecommendation() {
-        return recommendation;
+    public Long getPetId() {
+        return petId;
     }
 
-    public void setRecommendation(String recommendation) {
-        this.recommendation = recommendation;
+    public void setPetId(Long petId) {
+        this.petId = petId;
     }
 
-    public String getComments() {
-        return comments;
+    public Long getOwnerId() {
+        return ownerId;
     }
 
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
-    public Date getDateOfScheduling() {
-        return dateOfScheduling;
-    }
-
-    public void setDateOfScheduling(Date dateOfScheduling) {
-        this.dateOfScheduling = dateOfScheduling;
-    }
-
-    public Date getDateOfConsultation() {
-        return dateOfConsultation;
-    }
-
-    public void setDateOfConsultation(Date dateOfConsultation) {
-        this.dateOfConsultation = dateOfConsultation;
+    public void setOwnerId(Long ownerId) {
+        this.ownerId = ownerId;
     }
 
     @Override
     public String toString() {
         return "Consultation{" +
                 "id=" + id +
-                ", diagnosis='" + diagnosis + '\'' +
-                ", recommendation='" + recommendation + '\'' +
-                ", comments='" + comments + '\'' +
-                ", dateOfScheduling=" + dateOfScheduling +
-                ", dateOfConsultation=" + dateOfConsultation +
+                ", vetId=" + vetId +
                 ", petId=" + petId +
+                ", ownerId=" + ownerId +
                 '}';
     }
 }
