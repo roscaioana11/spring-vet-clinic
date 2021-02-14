@@ -1,0 +1,521 @@
+{
+	"info": {
+		"_postman_id": "54902a8d-bbd8-44af-b29b-c19c7112c87f",
+		"name": "postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "homework-project-application",
+			"item": [
+				{
+					"name": "newPet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kira\",\r\n    \"species\": \"CAT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/api/pet/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"pet",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllPets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/api/pet",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/pet/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"pet",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 9,\r\n    \"name\": \"Hely\",\r\n    \"species\": \"CAT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/api/pet/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"pet",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePetById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/pet/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"pet",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newOwner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Grig\",\r\n    \"lastName\": \"Deak\",\r\n    \"cnp\": \"295261821568\",\r\n    \"phoneNumber\": \"0752155265\",\r\n    \"email\": \"grig.deak@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/api/owner/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"owner",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllOwners",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/api/owner",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"owner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOwnerById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/api/owner/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"owner",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteOwnerById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/api/owner/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"owner",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateOwner",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"firstName\": \"Grig\",\r\n    \"lastName\": \"Deak\",\r\n    \"cnp\": \"195261821568\",\r\n    \"phoneNumber\": \"0752157265\",\r\n    \"email\": \"grigdeak@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/api/owner/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"owner",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newVet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lastName\": \"Veterinar\",\r\n    \"firstName\": \"Tot\",\r\n    \"cnp\": \"13452345646\",\r\n    \"yearOfGraduation\": \"2019\",\r\n    \"specialization\": \"Veterinary\",\r\n    \"phoneNumber\": \"07506205085\",\r\n    \"email\": \"veterinar01@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/api/vet/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"vet",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllVets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/api/vet",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"vet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getVetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/api/vet/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"vet",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateVet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/api/vet/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"vet",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteVetById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/api/vet/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"vet",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createConsultation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"petId\": 1,\r\n    \"vetId\": 3,\r\n    \"ownerId\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/api/consultation/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"consultation",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllConsultations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/api/consultation",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"consultation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getConsultationById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/api/consultation/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"consultation",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateConsultation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/api/consultation/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"consultation",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteConsultationById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/api/consultation/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"consultation",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newDiagnosis",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"consultationId\": 8,\r\n    \"title\": \"diagnosis\",\r\n    \"description\": \"problems\",\r\n    \"recommendations\": \"ceva\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/api/diagnosis/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"diagnosis",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOwnersWithPets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/api/owner/allPets?ownerIds=",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"owner",
+								"allPets"
+							],
+							"query": [
+								{
+									"key": "ownerIds",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
