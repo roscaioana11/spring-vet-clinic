@@ -6,25 +6,16 @@ import java.util.Date;
 import java.util.List;
 
 public class ConsultationMessageReceiver {
-    private Date dateOfScheduling;
-    private Date dateOfConsultation;
+    private String vetName;
     private String petName;
-    private List<String> ownerNames;
+    private String ownerName;
 
-    public Date getDateOfScheduling() {
-        return dateOfScheduling;
+    public String getVetName() {
+        return vetName;
     }
 
-    public void setDateOfScheduling(Date dateOfScheduling) {
-        this.dateOfScheduling = dateOfScheduling;
-    }
-
-    public Date getDateOfConsultation() {
-        return dateOfConsultation;
-    }
-
-    public void setDateOfConsultation(Date dateOfConsultation) {
-        this.dateOfConsultation = dateOfConsultation;
+    public void setVetName(String vetName) {
+        this.vetName = vetName;
     }
 
     public String getPetName() {
@@ -35,11 +26,11 @@ public class ConsultationMessageReceiver {
         this.petName = petName;
     }
 
-    public List<String> getOwnerNames() {
-        return ownerNames;
+    public String getOwnerName() {
+        return ownerName;
     }
 
-    public void setOwnerNames(List<String> ownerNames) {
-        this.ownerNames = ownerNames;
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
     }
 }

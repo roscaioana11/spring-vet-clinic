@@ -1,9 +1,18 @@
-package ro.fasttrackit.vetclinic.model;
+package ro.fasttrackit.vetclinic.model.message;
 
-public class DiagnosisMessage {
+public class DiagnosisMessageDtoSender {
+    private Long consultationId;
     private String title;
     private String description;
     private String recommendations;
+
+    public Long getConsultationId() {
+        return consultationId;
+    }
+
+    public void setConsultationId(Long consultationId) {
+        this.consultationId = consultationId;
+    }
 
     public String getTitle() {
         return title;

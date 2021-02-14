@@ -1,9 +1,9 @@
-package ro.fasttrackit.vetclinic.model;
+package ro.fasttrackit.vetclinic.model.message;
 
 import java.util.Date;
 import java.util.List;
 
-public class ConsultationMessage {
+public class ConsultationMessageDtoSender {
 
     private String vetName;
     private String petName;

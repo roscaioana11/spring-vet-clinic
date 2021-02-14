@@ -18,10 +18,9 @@ public class ConsultationReceiver {
 
         try {
             ConsultationMessageReceiver messageReceived = objectMapper.readValue(consultationMessage, ConsultationMessageReceiver.class);
-            System.out.println("DateOfScheduling: "+messageReceived.getDateOfScheduling());
-            System.out.println("DateOfConsultation: "+messageReceived.getDateOfConsultation());
+            System.out.println("VetName: "+messageReceived.getVetName());
             System.out.println("PetName: "+messageReceived.getPetName());
-            System.out.println("OwnerNames: "+messageReceived.getOwnerNames());
+            System.out.println("OwnerName: "+messageReceived.getOwnerName());
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

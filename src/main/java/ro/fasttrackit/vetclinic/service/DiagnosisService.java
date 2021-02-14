@@ -2,11 +2,11 @@ package ro.fasttrackit.vetclinic.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import ro.fasttrackit.vetclinic.model.Diagnosis;
-import ro.fasttrackit.vetclinic.model.DiagnosisMessage;
+import ro.fasttrackit.vetclinic.model.message.DiagnosisMessageDtoSender;
 import ro.fasttrackit.vetclinic.model.entity.DiagnosisEntity;
 import ro.fasttrackit.vetclinic.repository.*;
 
@@ -16,13 +16,13 @@ public class DiagnosisService {
     private final DiagnosisRepository repository;
     private final ConsultationRepository consultationRepository;
     private final RabbitTemplate rabbitTemplate;
-    private final Queue queue;
+    private final DirectExchange directExchange;
 
-    public DiagnosisService(DiagnosisRepository repository,ConsultationRepository consultationRepository,RabbitTemplate rabbitTemplate,Queue queue) {
+    public DiagnosisService(DiagnosisRepository repository,ConsultationRepository consultationRepository,RabbitTemplate rabbitTemplate,DirectExchange directExchange) {
         this.repository = repository;
         this.consultationRepository = consultationRepository;
         this.rabbitTemplate = rabbitTemplate;
-        this.queue = queue;
+        this.directExchange = directExchange;
     }
 
     public Diagnosis mapEntityToDiagnosisResponse(DiagnosisEntity entity){
@@ -45,7 +45,8 @@ public class DiagnosisService {
 
         DiagnosisEntity saveEntity = this.repository.save(newDiagnosis);
 
-        DiagnosisMessage diagnosisCreatedMessage = new DiagnosisMessage();
+        DiagnosisMessageDtoSender diagnosisCreatedMessage = new DiagnosisMessageDtoSender();
+        diagnosisCreatedMessage.setConsultationId(newDiagnosis.getConsultation().getId());
         diagnosisCreatedMessage.setTitle(newDiagnosis.getTitle());
         diagnosisCreatedMessage.setDescription(newDiagnosis.getDescription());
         diagnosisCreatedMessage.setRecommendations(newDiagnosis.getRecommendations());
@@ -54,7 +55,7 @@ public class DiagnosisService {
 
         try{
             String stringMessageConverted = objectMapper.writeValueAsString(diagnosisCreatedMessage);
-            rabbitTemplate.convertAndSend(queue.getName(), stringMessageConverted);
+            rabbitTemplate.convertAndSend(directExchange.getName(), "diagnosis", stringMessageConverted);
         } catch (JsonProcessingException e) {
 //            e.printStackTrace();
         }
