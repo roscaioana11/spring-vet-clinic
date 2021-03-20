@@ -2,7 +2,7 @@ package ro.fasttrackit.vetclinic.model;
 
 import java.util.Date;
 
-public class Consultation {
+public class ConsultationDto {
 
     private Long id;
     private Long vetId;
@@ -43,7 +43,7 @@ public class Consultation {
 
     @Override
     public String toString() {
-        return "Consultation{" +
+        return "ConsultationDto{" +
                 "id=" + id +
                 ", vetId=" + vetId +
                 ", petId=" + petId +

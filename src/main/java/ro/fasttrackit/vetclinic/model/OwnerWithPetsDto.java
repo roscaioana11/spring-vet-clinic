@@ -2,7 +2,7 @@ package ro.fasttrackit.vetclinic.model;
 
 import java.util.List;
 
-public class OwnerWithPets {
+public class OwnerWithPetsDto {
     private String firstName;
     private String lastName;
     private List<String> petNames;
@@ -33,7 +33,7 @@ public class OwnerWithPets {
 
     @Override
     public String toString() {
-        return "OwnerWithPets{" +
+        return "OwnerWithPetsDto{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", petNames=" + petNames +

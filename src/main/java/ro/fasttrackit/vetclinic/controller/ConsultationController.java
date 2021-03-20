@@ -3,7 +3,7 @@ package ro.fasttrackit.vetclinic.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ro.fasttrackit.vetclinic.model.Consultation;
+import ro.fasttrackit.vetclinic.model.ConsultationDto;
 import ro.fasttrackit.vetclinic.service.ConsultationService;
 
 import java.util.List;
@@ -18,30 +18,30 @@ public class ConsultationController {
     }
 
     @GetMapping("/api/consultation")
-    public List<Consultation> getAllConsultations(){
+    public List<ConsultationDto> getAllConsultations(){
         return service.findAllConsultations();
     }
 
     @GetMapping("/api/consultation/{id}")
-    public Consultation findConsultationById(@PathVariable(name = "id") Long consultationId){
+    public ConsultationDto findConsultationById(@PathVariable(name = "id") Long consultationId){
         return service.findConsultationById(consultationId);
     }
 
     @PostMapping("/api/consultation/new")
-    public ResponseEntity<Consultation> createNewConsultation(@RequestBody Consultation consultationRequest){
+    public ResponseEntity<ConsultationDto> createNewConsultation(@RequestBody ConsultationDto consultationRequest){
         return ResponseEntity.ok(service.createNewConsultation(consultationRequest));
-
     }
 
-    @PutMapping("/api/consultation/update")
-    public ResponseEntity<Consultation> updateConsultation(@RequestBody Consultation updateRequest){
-        if(updateRequest.getId() == null || updateRequest.getId() <= 0){
-            return ResponseEntity
-                    .status(HttpStatus.BAD_REQUEST)
-                    .body(updateRequest);
-        }
-        return ResponseEntity.ok(service.updateConsultation(updateRequest));
-    }
+    //update se face prin create, daca se gaseste o combinatie de id Owner si id Pet existent
+//    @PutMapping("/api/consultation/update")
+//    public ResponseEntity<ConsultationDto> updateConsultation(@RequestBody ConsultationDto updateRequest){
+//        if(updateRequest.getId() == null || updateRequest.getId() <= 0){
+//            return ResponseEntity
+//                    .status(HttpStatus.BAD_REQUEST)
+//                    .body(updateRequest);
+//        }
+//        return ResponseEntity.ok(service.updateConsultation(updateRequest));
+//    }
 
     @DeleteMapping("/api/consultation/{id}")
     public void deleteConsultation(@PathVariable("id") Long idToDelete){

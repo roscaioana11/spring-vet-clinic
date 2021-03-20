@@ -2,7 +2,7 @@ package ro.fasttrackit.vetclinic.model;
 
 import java.util.Date;
 
-public class Vet {
+public class VetDto {
     private Long id;
     private String lastName;
     private String firstName;
@@ -78,7 +78,7 @@ public class Vet {
 
     @Override
     public String toString() {
-        return "Vet{" +
+        return "VetDto{" +
                 "id=" + id +
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +

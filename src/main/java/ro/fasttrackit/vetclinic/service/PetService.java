@@ -3,10 +3,7 @@ package ro.fasttrackit.vetclinic.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import ro.fasttrackit.vetclinic.model.Owner;
-import ro.fasttrackit.vetclinic.model.Pet;
-import ro.fasttrackit.vetclinic.model.entity.OwnerEntity;
+import ro.fasttrackit.vetclinic.model.PetDto;
 import ro.fasttrackit.vetclinic.model.entity.PetEntity;
 import ro.fasttrackit.vetclinic.repository.PetRepository;
 
@@ -27,8 +24,8 @@ public class PetService {
         this.repository = injectedRepository;
     }
 
-    public  Pet mapEntityToPetResponse(PetEntity entity){
-        Pet response = new Pet();
+    public PetDto mapEntityToPetResponse(PetEntity entity){
+        PetDto response = new PetDto();
         response.setId(entity.getId());
         response.setName(entity.getName());
         response.setSpecies(entity.getSpecies());
@@ -36,7 +33,7 @@ public class PetService {
     }
 
     //for postmapping adding a new pet in db
-    public Pet createNewPet(Pet request){
+    public PetDto createNewPet(PetDto request){
 
         //cream o entitate
         PetEntity newPet = new PetEntity();
@@ -51,7 +48,7 @@ public class PetService {
     }
 
     //for getmapping get all pets
-    public List<Pet> findAllPets() {
+    public List<PetDto> findAllPets() {
         return this.repository.findAll()
                 .stream()
                 .map(entity -> mapEntityToPetResponse(entity))
@@ -59,7 +56,7 @@ public class PetService {
     }
 
     //for getmapping get pet by id
-    public Pet findPetById(Long petId) {
+    public PetDto findPetById(Long petId) {
         Optional<PetEntity> foundEntity = repository.findById(petId);
         if (!foundEntity.isPresent()){
             return null;
@@ -69,7 +66,7 @@ public class PetService {
                 .get();
     }
 
-    public Pet updatePet(Pet req) {
+    public PetDto updatePet(PetDto req) {
         PetEntity entityToUpdate = new PetEntity();
         entityToUpdate.setId(req.getId()); // ! here is the diff between UPDATE and SAVE
         entityToUpdate.setName(req.getName());

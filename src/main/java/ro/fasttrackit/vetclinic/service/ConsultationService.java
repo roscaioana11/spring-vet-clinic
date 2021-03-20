@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
-import ro.fasttrackit.vetclinic.model.Consultation;
+import ro.fasttrackit.vetclinic.model.ConsultationDto;
 import ro.fasttrackit.vetclinic.model.message.ConsultationMessageDtoSender;
 import ro.fasttrackit.vetclinic.model.entity.ConsultationEntity;
 import ro.fasttrackit.vetclinic.repository.ConsultationRepository;
@@ -36,8 +36,8 @@ public class ConsultationService {
         this.directExchange = directExchange;
     }
 
-    public Consultation mapEntityToConsultationResponse(ConsultationEntity entity){
-        Consultation response = new Consultation();
+    public ConsultationDto mapEntityToConsultationResponse(ConsultationEntity entity){
+        ConsultationDto response = new ConsultationDto();
         response.setId(entity.getId());
         response.setVetId(entity.getVet().getId());
         response.setPetId(entity.getPet().getId());
@@ -46,7 +46,7 @@ public class ConsultationService {
     }
 
     //post
-    public Consultation createNewConsultation(Consultation request){
+    public ConsultationDto createNewConsultation(ConsultationDto request){
         ConsultationEntity newConsultation = new ConsultationEntity();
         Optional<ConsultationEntity> optionalConsultation = repository.findConsultationByOwnerAndPet(request.getOwnerId(),request.getPetId());
         if(optionalConsultation.isPresent()){
@@ -77,7 +77,7 @@ public class ConsultationService {
     }
 
     //get all
-    public List<Consultation> findAllConsultations(){
+    public List<ConsultationDto> findAllConsultations(){
         return this.repository.findAll()
                 .stream()
                 .map(entity -> mapEntityToConsultationResponse(entity))
@@ -85,7 +85,7 @@ public class ConsultationService {
     }
 
     //get
-    public Consultation findConsultationById(Long consultationId){
+    public ConsultationDto findConsultationById(Long consultationId){
         Optional<ConsultationEntity> foundEntity = repository.findById(consultationId);
         if(!foundEntity.isPresent()){
             return null;
@@ -96,17 +96,17 @@ public class ConsultationService {
     }
 
     //put
-    public Consultation updateConsultation(Consultation req){
-        ConsultationEntity entityToUpdate = new ConsultationEntity();
-        entityToUpdate.setId(req.getId());
-        entityToUpdate.setVet(vetRepository.findById(req.getVetId()).get());
-        entityToUpdate.setPet(petRepository.findById(req.getPetId()).get());
-        entityToUpdate.setOwner(ownerRepository.findById(req.getOwnerId()).get());
-
-        ConsultationEntity updatedEntity = this.repository.save(entityToUpdate);
-
-        return mapEntityToConsultationResponse(updatedEntity);
-    }
+//    public ConsultationDto updateConsultation(ConsultationDto req){
+//        ConsultationEntity entityToUpdate = new ConsultationEntity();
+//        entityToUpdate.setId(req.getId());
+//        entityToUpdate.setVet(vetRepository.findById(req.getVetId()).get());
+//        entityToUpdate.setPet(petRepository.findById(req.getPetId()).get());
+//        entityToUpdate.setOwner(ownerRepository.findById(req.getOwnerId()).get());
+//
+//        ConsultationEntity updatedEntity = this.repository.save(entityToUpdate);
+//
+//        return mapEntityToConsultationResponse(updatedEntity);
+//    }
 
     //delete
     public void deleteConsultation(Long id){

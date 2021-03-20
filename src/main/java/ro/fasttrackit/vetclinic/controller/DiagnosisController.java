@@ -4,8 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import ro.fasttrackit.vetclinic.model.Consultation;
-import ro.fasttrackit.vetclinic.model.Diagnosis;
+import ro.fasttrackit.vetclinic.model.DiagnosisDto;
 import ro.fasttrackit.vetclinic.service.DiagnosisService;
 
 @RestController
@@ -18,7 +17,7 @@ public class DiagnosisController {
     }
 
     @PostMapping("/api/diagnosis/new")
-    public ResponseEntity<Diagnosis> createNewDiagnosis(@RequestBody Diagnosis diagnosisRequest){
+    public ResponseEntity<DiagnosisDto> createNewDiagnosis(@RequestBody DiagnosisDto diagnosisRequest){
         return ResponseEntity.ok(service.createNewDiagnosis(diagnosisRequest));
 
     }

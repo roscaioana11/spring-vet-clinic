@@ -1,7 +1,7 @@
 package ro.fasttrackit.vetclinic.service;
 
 import org.springframework.stereotype.Service;
-import ro.fasttrackit.vetclinic.model.Vet;
+import ro.fasttrackit.vetclinic.model.VetDto;
 import ro.fasttrackit.vetclinic.model.entity.VetEntity;
 import ro.fasttrackit.vetclinic.repository.VetRepository;
 
@@ -18,8 +18,8 @@ public class VetService {
         this.repository = repository;
     }
 
-    public Vet mapEntityToVetResponse(VetEntity entity){
-        Vet response = new Vet();
+    public VetDto mapEntityToVetResponse(VetEntity entity){
+        VetDto response = new VetDto();
         response.setId(entity.getId());
         response.setFirstName(entity.getFirstName());
         response.setLastName(entity.getLastName());
@@ -32,7 +32,7 @@ public class VetService {
     }
 
     //post
-    public Vet createNewVet(Vet request){
+    public VetDto createNewVet(VetDto request){
         VetEntity newVet = new VetEntity();
         newVet.setFirstName(request.getFirstName());
         newVet.setLastName(request.getLastName());
@@ -48,7 +48,7 @@ public class VetService {
     }
 
     //get
-    public List<Vet> findAllVets(){
+    public List<VetDto> findAllVets(){
         return this.repository.findAll()
                 .stream()
                 .map(entity -> mapEntityToVetResponse(entity))
@@ -56,7 +56,7 @@ public class VetService {
     }
 
     //get
-    public Vet findVetById(Long vetId){
+    public VetDto findVetById(Long vetId){
         Optional<VetEntity> foundEntity = repository.findById(vetId);
         if(!foundEntity.isPresent()){
             return null;
@@ -67,7 +67,7 @@ public class VetService {
     }
 
     //put
-    public Vet updateVet(Vet req){
+    public VetDto updateVet(VetDto req){
         VetEntity entityToUpdate = new VetEntity();
         entityToUpdate.setId(req.getId()); // this is the diff between UPDATE and SAVE
         entityToUpdate.setFirstName(req.getFirstName());

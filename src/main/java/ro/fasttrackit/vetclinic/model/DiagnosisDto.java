@@ -1,6 +1,6 @@
 package ro.fasttrackit.vetclinic.model;
 
-public class Diagnosis {
+public class DiagnosisDto {
     private Long id;
     private Long consultationId;
     private String title;
@@ -49,7 +49,7 @@ public class Diagnosis {
 
     @Override
     public String toString() {
-        return "Diagnosis{" +
+        return "DiagnosisDto{" +
                 "id=" + id +
                 ", consultationId=" + consultationId +
                 ", title='" + title + '\'' +

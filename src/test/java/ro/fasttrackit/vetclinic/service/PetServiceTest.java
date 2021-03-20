@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ro.fasttrackit.vetclinic.model.Pet;
+import ro.fasttrackit.vetclinic.model.PetDto;
 import ro.fasttrackit.vetclinic.model.Species;
 import ro.fasttrackit.vetclinic.model.entity.PetEntity;
 import ro.fasttrackit.vetclinic.repository.PetRepository;
@@ -25,7 +25,7 @@ public class PetServiceTest {
 
     @Test
     public void createNewPet_expectedRepositorySaveMethodCalled() {
-        Pet petRequest = new Pet(); //Given part / Test setup
+        PetDto petRequest = new PetDto(); //Given part / Test setup
         Mockito.when(this.repository.save(ArgumentMatchers.any(PetEntity.class))).thenReturn(new PetEntity());
 
         this.service.createNewPet(petRequest); //When the Service method calls the 'createNewStudent' method
@@ -43,7 +43,7 @@ public class PetServiceTest {
         Mockito.when(repository.save(ArgumentMatchers.any())).thenReturn(expectedEntity); //cand se apeleaza save, returneaza expected entity
 
         // When (action to test)
-        Pet actualCreatedPet = service.createNewPet(new Pet());
+        PetDto actualCreatedPet = service.createNewPet(new PetDto());
 
         // Then (assertions)
         Assertions.assertNotNull(actualCreatedPet);

@@ -17,7 +17,7 @@ public class ConsultationReceiver {
         ObjectMapper objectMapper = new ObjectMapper(); //cand este primit un string Json, se foloseste ObjectMapper pentru a crea un obiect din acesta
 
         try {
-            ConsultationMessageReceiver messageReceived = objectMapper.readValue(consultationMessage, ConsultationMessageReceiver.class);
+            ConsultationMessageReceiver messageReceived = objectMapper.readValue(consultationMessage, ConsultationMessageReceiver.class); //obiectul este creat dupa clasa model ConsultationMessageReceiver folosing datele (valorile) din stringul Json
             System.out.println("VetName: "+messageReceived.getVetName());
             System.out.println("PetName: "+messageReceived.getPetName());
             System.out.println("OwnerName: "+messageReceived.getOwnerName());
@@ -25,7 +25,5 @@ public class ConsultationReceiver {
             e.printStackTrace();
         }
 //        System.out.println(" ["+ Date.from(Instant.now())+"] Received: " + consultationMessage);
-
     }
-
 }

@@ -47,14 +47,6 @@ public class PetEntity implements Serializable {
         this.species = species;
     }
 
-//    public List<OwnerEntity> getOwners() {
-//        return owners;
-//    }
-//
-//    public void setOwners(List<OwnerEntity> owners) {
-//        this.owners = owners;
-//    }
-
     public List<ConsultationEntity> getConsultations() {
         return consultations;
     }

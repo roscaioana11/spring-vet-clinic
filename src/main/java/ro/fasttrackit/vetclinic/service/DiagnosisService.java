@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
-import ro.fasttrackit.vetclinic.model.Diagnosis;
+import ro.fasttrackit.vetclinic.model.DiagnosisDto;
 import ro.fasttrackit.vetclinic.model.message.DiagnosisMessageDtoSender;
 import ro.fasttrackit.vetclinic.model.entity.DiagnosisEntity;
 import ro.fasttrackit.vetclinic.repository.*;
@@ -25,8 +25,8 @@ public class DiagnosisService {
         this.directExchange = directExchange;
     }
 
-    public Diagnosis mapEntityToDiagnosisResponse(DiagnosisEntity entity){
-        Diagnosis response = new Diagnosis();
+    public DiagnosisDto mapEntityToDiagnosisResponse(DiagnosisEntity entity){
+        DiagnosisDto response = new DiagnosisDto();
         response.setId(entity.getId());
         response.setConsultationId(entity.getConsultation().getId());
         response.setTitle(entity.getTitle());
@@ -36,7 +36,7 @@ public class DiagnosisService {
     }
 
     //post
-    public Diagnosis createNewDiagnosis(Diagnosis request){
+    public DiagnosisDto createNewDiagnosis(DiagnosisDto request){
         DiagnosisEntity newDiagnosis = new DiagnosisEntity();
         newDiagnosis.setConsultation(consultationRepository.findById(request.getConsultationId()).get());
         newDiagnosis.setTitle(request.getTitle());

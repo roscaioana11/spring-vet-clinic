@@ -11,20 +11,6 @@ public class ConsultationEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    @Column
-//    private String diagnosis;
-//
-//    @Column
-//    private String recommendation;
-//
-//    @Column
-//    private String comments;
-//
-//    @Column
-//    private Date dateOfScheduling;
-//
-//    @Column
-//    private Date dateOfConsultation;
 
     @ManyToOne
     private VetEntity vet;

@@ -1,11 +1,13 @@
-package ro.fasttrackit.vetclinic.controller.model;
+package ro.fasttrackit.vetclinic.model;
 
-import ro.fasttrackit.vetclinic.model.Species;
+import java.util.List;
 
 public class PetDto {
+
     private Long id;
     private String name;
     private Species species;
+
 
     public Long getId() {
         return id;
@@ -29,5 +31,14 @@ public class PetDto {
 
     public void setSpecies(Species species) {
         this.species = species;
+    }
+
+    @Override
+    public String toString() {
+        return "PetDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", species=" + species +
+                '}';
     }
 }

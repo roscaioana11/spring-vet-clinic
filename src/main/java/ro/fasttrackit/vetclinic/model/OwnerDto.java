@@ -1,6 +1,6 @@
 package ro.fasttrackit.vetclinic.model;
 
-public class Owner {
+public class OwnerDto {
 
     private Long id;
     private String lastName;
@@ -59,7 +59,7 @@ public class Owner {
 
     @Override
     public String toString() {
-        return "Owner{" +
+        return "OwnerDto{" +
                 "id=" + id +
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +

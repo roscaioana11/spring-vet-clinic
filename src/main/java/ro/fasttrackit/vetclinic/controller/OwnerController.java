@@ -4,8 +4,8 @@ package ro.fasttrackit.vetclinic.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ro.fasttrackit.vetclinic.model.Owner;
-import ro.fasttrackit.vetclinic.model.OwnerWithPets;
+import ro.fasttrackit.vetclinic.model.OwnerDto;
+import ro.fasttrackit.vetclinic.model.OwnerWithPetsDto;
 import ro.fasttrackit.vetclinic.service.OwnerService;
 
 import java.util.List;
@@ -21,22 +21,22 @@ public class OwnerController {
     }
 
     @GetMapping("/api/owner")
-    public List<Owner> getAllOwners(){
+    public List<OwnerDto> getAllOwners(){
         return service.findAllOwners();
     }
 
     @GetMapping("/api/owner/{id}")
-    public Owner findOwnerById(@PathVariable(name = "id") Long ownerId){
+    public OwnerDto findOwnerById(@PathVariable(name = "id") Long ownerId){
         return service.findOwnerById(ownerId);
     }
 
     @PostMapping("/api/owner/new")
-    public ResponseEntity<Owner> createNewOwner(@RequestBody Owner ownerRequest){
+    public ResponseEntity<OwnerDto> createNewOwner(@RequestBody OwnerDto ownerRequest){
         return ResponseEntity.ok(service.createNewOwner(ownerRequest));
     }
 
     @PutMapping("/api/owner/update")
-    public ResponseEntity<Owner> updateOwner(@RequestBody Owner updateRequest) {
+    public ResponseEntity<OwnerDto> updateOwner(@RequestBody OwnerDto updateRequest) {
         if (updateRequest.getId() == null || updateRequest.getId() <= 0) {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
@@ -46,7 +46,7 @@ public class OwnerController {
     }
 
     @GetMapping("/api/owner/allPets")
-    public List<OwnerWithPets> getAllOwnersWithPets(@RequestParam List<Long> ownerIds){
+    public List<OwnerWithPetsDto> getAllOwnersWithPets(@RequestParam List<Long> ownerIds){
         return service.getOwnersWithPets(ownerIds);
     }
 
@@ -55,6 +55,4 @@ public class OwnerController {
 
         this.service.deleteOwner(idToDelete);
     }
-
-
 }

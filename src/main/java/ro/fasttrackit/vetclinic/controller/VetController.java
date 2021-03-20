@@ -3,7 +3,7 @@ package ro.fasttrackit.vetclinic.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ro.fasttrackit.vetclinic.model.Vet;
+import ro.fasttrackit.vetclinic.model.VetDto;
 import ro.fasttrackit.vetclinic.service.VetService;
 
 import java.util.List;
@@ -18,22 +18,22 @@ public class VetController {
     }
 
     @GetMapping("/api/vet")
-    public List<Vet> getAllVets(){
+    public List<VetDto> getAllVets(){
         return service.findAllVets();
     }
 
     @GetMapping("/api/vet/{id}")
-    public Vet findVetById(@PathVariable(name = "id") Long vetId){
+    public VetDto findVetById(@PathVariable(name = "id") Long vetId){
         return service.findVetById(vetId);
     }
 
     @PostMapping("/api/vet/new")
-    public ResponseEntity<Vet> createNewVet(@RequestBody Vet vetRequest){
+    public ResponseEntity<VetDto> createNewVet(@RequestBody VetDto vetRequest){
         return ResponseEntity.ok(service.createNewVet(vetRequest));
     }
 
     @PutMapping("/api/vet/update")
-    public ResponseEntity<Vet> updateVet(@RequestBody Vet updateRequest){
+    public ResponseEntity<VetDto> updateVet(@RequestBody VetDto updateRequest){
         if(updateRequest.getId() == null || updateRequest.getId() <= 0) {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)

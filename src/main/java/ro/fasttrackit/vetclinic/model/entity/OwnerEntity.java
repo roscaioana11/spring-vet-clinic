@@ -84,12 +84,4 @@ public class OwnerEntity implements Serializable {
     public void setConsultations(List<ConsultationEntity> consultations) {
         this.consultations = consultations;
     }
-
-//    public List<PetEntity> getPets() {
-//        return pets;
-//    }
-//
-//    public void setPets(List<PetEntity> pets) {
-//        this.pets = pets;
-//    }
 }

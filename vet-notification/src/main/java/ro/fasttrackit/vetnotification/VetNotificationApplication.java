@@ -11,5 +11,4 @@ public class VetNotificationApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(VetNotificationApplication.class, args);
 	}
-
 }

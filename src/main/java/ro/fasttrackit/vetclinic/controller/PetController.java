@@ -3,7 +3,7 @@ package ro.fasttrackit.vetclinic.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ro.fasttrackit.vetclinic.model.Pet;
+import ro.fasttrackit.vetclinic.model.PetDto;
 import ro.fasttrackit.vetclinic.service.PetService;
 
 import java.util.List;
@@ -19,24 +19,24 @@ public class PetController {
     }
 
     @GetMapping("/api/pet")
-    public List<Pet> getAllPets(){
+    public List<PetDto> getAllPets(){
         return service.findAllPets();
     }
 
     @GetMapping("/api/pet/{id}")
-    public Pet findPetById(@PathVariable(name = "id") Long petId){
+    public PetDto findPetById(@PathVariable(name = "id") Long petId){
 
         return service.findPetById(petId);
     }
 
     @PostMapping("/api/pet/new")
-    public ResponseEntity<Pet> createNewPet(@RequestBody Pet petRequest){
+    public ResponseEntity<PetDto> createNewPet(@RequestBody PetDto petRequest){
 
         return ResponseEntity.ok(service.createNewPet(petRequest));
     }
 
     @PutMapping("/api/pet/update")
-    public ResponseEntity<Pet> updatePet(@RequestBody Pet updateRequest) {
+    public ResponseEntity<PetDto> updatePet(@RequestBody PetDto updateRequest) {
         if (updateRequest.getId() == null || updateRequest.getId() <= 0) {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
@@ -51,7 +51,6 @@ public class PetController {
         this.service.deletePet(idToDelete);
 
     }
-
 }
 
 

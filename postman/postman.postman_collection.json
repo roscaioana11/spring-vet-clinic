@@ -317,6 +317,15 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"lastName\": \"Veterinar\",\r\n    \"firstName\": \"Updated\",\r\n    \"cnp\": \"13452345646\",\r\n    \"yearOfGraduation\": \"2019\",\r\n    \"specialization\": \"Veterinary\",\r\n    \"phoneNumber\": \"07506205085\",\r\n    \"email\": \"veterinar01@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "localhost:8082/api/vet/update",
 							"host": [
@@ -359,7 +368,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"petId\": 1,\r\n    \"vetId\": 3,\r\n    \"ownerId\": 3\r\n}",
+							"raw": "{\r\n    \"petId\": 1,\r\n    \"vetId\": 2,\r\n    \"ownerId\": 3\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -406,7 +415,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8082/api/consultation/1",
+							"raw": "localhost:8082/api/consultation/9",
 							"host": [
 								"localhost"
 							],
@@ -414,7 +423,7 @@
 							"path": [
 								"api",
 								"consultation",
-								"1"
+								"9"
 							]
 						}
 					},
@@ -425,6 +434,15 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 9,\r\n    \"petId\": 2,\r\n    \"vetId\": 3,\r\n    \"ownerId\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "localhost:8082/api/consultation/update",
 							"host": [
