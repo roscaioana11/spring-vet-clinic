@@ -42,7 +42,7 @@ public class VetController {
         return  ResponseEntity.ok(service.updateVet(updateRequest));
     }
 
-    @DeleteMapping("/api/api/vet/{id}")
+    @DeleteMapping("/api/vet/{id}")
     public void deleteVet(@PathVariable("id") Long idToDelete){
         this.service.deleteVet(idToDelete);
     }
